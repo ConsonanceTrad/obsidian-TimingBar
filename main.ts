@@ -40,6 +40,9 @@ export default class ShowTime extends Plugin {
 	async onload() {
 		await this.loadSettings();
 		this.resetCutdownToggle();
+		this.registerCodeMirror(cm => {
+			cm.on('change', this.onChange);
+		});
 
 		this.waitingBar = this.addStatusBarItem();
 		this.waitingBar.toggle(this.settings.waitingStatusBarToggle);
@@ -104,7 +107,15 @@ export default class ShowTime extends Plugin {
 		this.currentBar.remove();
 		this.waitingBar.remove();
 		this.cutdownBar.remove();
+		this.app.workspace.iterateCodeMirrors(cm => {
+			cm.off('change', this.onChange);
+		});
 	}
+
+	onChange: () => {
+		// ...
+	}
+
 
 	//Using setting values
 	async loadSettings() {this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());}

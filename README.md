@@ -1,4 +1,4 @@
-# Obsidian Sample Plugin
+# Obsidian-TimingBar Plugin
 
 - Optional displays wait bar, current time, countdown, and positive timer in the status bar
 

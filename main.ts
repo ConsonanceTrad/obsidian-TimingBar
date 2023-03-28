@@ -16,10 +16,10 @@ interface ShowTimeSettings {
 }
 const DEFAULT_SETTINGS: ShowTimeSettings = {
 	//StatusBarToggle
-	CurrentStatusBarToggle: true,
+	CurrentStatusBarToggle: false,
 	waitingStatusBarToggle: true,
-	CutdownStatusBarToggle: true,
-	PositiveTimingStatusBarToggle: true,
+	CutdownStatusBarToggle: false,
+	PositiveTimingStatusBarToggle: false,
 	//Others
 	cutdownToggle: false,
 	LogUrl: "",

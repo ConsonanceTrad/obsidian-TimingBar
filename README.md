@@ -18,6 +18,6 @@
 
 Default all the things close expect waiting Bar. You need to open what you need corresponding at the SettingTab.
 
-# Recommand My other plugins
+# Recommend My other plugins
 
 - Waiting for the star to come down.

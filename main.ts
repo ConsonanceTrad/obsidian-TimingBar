@@ -1,7 +1,6 @@
 import { read } from 'fs';
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting, WorkspaceLeaf } from 'obsidian';
 import { moment } from 'obsidian';
-import { ExampleView, VIEW_TYPE_EXAMPLE } from "./view";
 
 interface ShowTimeSettings {
 	//StatusBarToggle
@@ -89,7 +88,7 @@ export default class ShowTime extends Plugin {
 			callback: () => {
 				new Notice('The countdown has been Close.');
 				console.log('Change StartTime and restart Cutdown');
-				this.resetStartTime();
+				this.resetCutdownToggle();
 			}
 		});
 
@@ -113,10 +112,7 @@ export default class ShowTime extends Plugin {
 	//Sava setting values
 	async saveSettings() {await this.saveData(this.settings);}
 
-	updateStatusBar() {
-		this.currentBar.setText(moment().format("H") + "-" + Math.floor(parseInt(moment().format("mm"))/15) +"Q" );
-		
-	}
+	updateStatusBar() {this.currentBar.setText(moment().format("H") + "-" + Math.floor(parseInt(moment().format("mm"))/15) +"q" );}
 
 	updatewaitingStatusBar() {
 		// var second = parseInt(moment().format("ss"))%2;

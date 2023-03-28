@@ -23,7 +23,7 @@ const DEFAULT_SETTINGS: ShowTimeSettings = {
 	//Others
 	cutdownToggle: false,
 	LogUrl: "",
-	StartTime: "2020-01-01-10:10:01",
+	StartTime: "",
 	Keep: "20",
 }
 
@@ -156,17 +156,34 @@ export default class ShowTime extends Plugin {
 	}
 
 	cutdown(){
-		var current = this.getTimestamp();
-
-
-		this.cutdownBar.setText(current);
+		var end =  moment(this.settings.StartTime,'YYYY:MM:DD:HH:mm:ss').add(parseInt(this.settings.Keep),'minutes').format('YYYY:MM:DD:HH:mm:ss');
+		var diff = this.getTimeDiff(this.getTimestamp(),end);
+		this.cutdownBar.setText(diff.toString()+'/'+parseInt(this.settings.Keep)*60 + 's' + ' ' +parseInt(this.settings.Keep)+ 'm Total');
 	}
 
 
 
 
 	getTimestamp():string{
-		return moment().format('YYYY-MM-DD-HH:mm:ss');
+		console.log('Current:' + moment().format('YYYY:MM:DD:HH:mm:ss'));
+		return moment().format('YYYY:MM:DD:HH:mm:ss');
+	}
+	getTimeDiff(timestamp_Start:string,timestamp_End:string):number{
+		console.log(timestamp_Start+"->"+timestamp_End);
+		var s = moment(timestamp_Start,'YYYY:MM:DD:HH:mm:ss');
+		console.log('StartTime:'+s);
+		console.log('StartTime:'+s.format('YYYY:MM:DD:HH:mm:ss'));
+		var e = moment(timestamp_End,'YYYY:MM:DD:HH:mm:ss');
+		console.log('EndTime:'+e);
+		console.log('EndTime:'+e.format('YYYY:MM:DD:HH:mm:ss'));
+		var diff = e.diff(s,'seconds');
+		if(diff<=0){
+			console.log('Timediff:'+diff);
+			return 0;
+		}else{
+			console.log('Timediff:'+diff);
+			return diff;
+		}
 	}
 	async resetStartTime(){
 		this.settings.StartTime = this.getTimestamp();

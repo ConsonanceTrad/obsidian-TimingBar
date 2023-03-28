@@ -1,10 +1,10 @@
 {
-	"id": "obsidian-sample-plugin",
+	"id": "obsidian-TimingBar",
 	"name": "ShowTime",
-	"version": "0.1.3",
+	"version": "0.2.1",
 	"minAppVersion": "0.15.0",
-	"description": "This is a sample plugin for Obsidian. This plugin demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
+	"description": "Optional displays wait bar, current time, countdown, and positive timer in the status bar",
+	"author": "PPN010",
+	"authorUrl": "https://github.com/PPN010",
 	"isDesktopOnly": false
 }

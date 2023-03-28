@@ -8,10 +8,11 @@
   - Waiting Bar
   - Current Time
   - Optional Close
+  - Cutdown Timing
 - In the making
-  - Cutdown & Positive Timing
+  - Positive Timing
   - Log the timing
-  - And look forward to your suggestions  
+  - And look forward to your suggestions, Welcome an Issue or push
 
 # How to use it
 

@@ -1,6 +1,6 @@
 {
 	"id": "obsidian-TimingBar",
-	"name": "ShowTime",
+	"name": "TimingBar",
 	"version": "0.2.1",
 	"minAppVersion": "0.15.0",
 	"description": "Optional displays wait bar, current time, countdown, and positive timer in the status bar",
